@@ -21,6 +21,7 @@ const InputTodo = ({ setTodos }) => {
 
         const trimmed = inputText.trim();
         if (!trimmed) {
+          // eslint-disable-next-line no-alert
           return alert('Please write something');
         }
 
@@ -31,7 +32,9 @@ const InputTodo = ({ setTodos }) => {
           return setTodos(prev => [...prev, data]);
         }
       } catch (error) {
+        // eslint-disable-next-line no-console
         console.error(error);
+        // eslint-disable-next-line no-alert
         alert('Something went wrong.');
       } finally {
         setInputText('');
