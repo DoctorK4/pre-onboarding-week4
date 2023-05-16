@@ -1,7 +1,7 @@
 import { FaSpinner, FaTrash } from 'react-icons/fa';
 import { useCallback, useState, useEffect, useRef } from 'react';
 
-import { deleteTodo } from '../../api/todo';
+import { deleteTodo } from '../../../api/todo';
 
 const TodoItem = ({ id, title, setTodos }) => {
   const [isLoading, setIsLoading] = useState(false);

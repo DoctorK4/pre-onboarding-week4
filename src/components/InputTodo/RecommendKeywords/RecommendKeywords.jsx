@@ -1,5 +1,5 @@
 import React from 'react';
-import { RecommendItem } from './RecommendItem';
+import { RecommendItem } from './RecommendItem/RecommendItem';
 
 export const RecommendKeywords = ({ recommendList }) => {
   return (
@@ -7,12 +7,7 @@ export const RecommendKeywords = ({ recommendList }) => {
       <ul>
         {recommendList.length > 0
           ? recommendList.map((item, index) => (
-              <RecommendItem
-                key={item.id}
-                item={item}
-                id={item.id}
-                index={index}
-              />
+              <RecommendItem key={item} item={item} id={index} />
             ))
           : null}
       </ul>

@@ -1,18 +1,15 @@
 import { FaPlusCircle, FaSpinner } from 'react-icons/fa';
-import { useCallback, useEffect, useState } from 'react';
-
-import { createTodo } from '../api/todo';
-import useFocus from '../hooks/useFocus';
+import { useCallback, useState } from 'react';
+import { createTodo } from '../../api/todo';
+import useFocus from '../../hooks/useFocus';
+import { RecommendKeywords } from './RecommendKeywords/RecommendKeywords';
+import { useRecommend } from './RecommendKeywords/useRecommend';
 
 const InputTodo = ({ setTodos }) => {
   const [inputText, setInputText] = useState('');
   const [isLoading, setIsLoading] = useState(false);
-  const { ref, setFocus } = useFocus();
-
-  useEffect(() => {
-    setFocus();
-  }, [setFocus]);
-
+  const { ref } = useFocus();
+  const { recommendList } = useRecommend(inputText);
   const handleSubmit = useCallback(
     async e => {
       try {
@@ -45,23 +42,26 @@ const InputTodo = ({ setTodos }) => {
   );
 
   return (
-    <form className="form-container" onSubmit={handleSubmit}>
-      <input
-        className="input-text"
-        placeholder="Add new todo..."
-        ref={ref}
-        value={inputText}
-        onChange={e => setInputText(e.target.value)}
-        disabled={isLoading}
-      />
-      {!isLoading ? (
-        <button className="input-submit" type="submit">
-          <FaPlusCircle className="btn-plus" />
-        </button>
-      ) : (
-        <FaSpinner className="spinner" />
-      )}
-    </form>
+    <>
+      <form className="form-container" onSubmit={handleSubmit}>
+        <input
+          className="input-text"
+          placeholder="Add new todo..."
+          ref={ref}
+          value={inputText}
+          onChange={e => setInputText(e.target.value)}
+          disabled={isLoading}
+        />
+        {!isLoading ? (
+          <button className="input-submit" type="submit">
+            <FaPlusCircle className="btn-plus" />
+          </button>
+        ) : (
+          <FaSpinner className="spinner" />
+        )}
+      </form>
+      <RecommendKeywords recommendList={recommendList} />
+    </>
   );
 };
 

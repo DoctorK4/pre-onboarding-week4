@@ -1,4 +1,4 @@
-import TodoItem from '../TodoItem/TodoItem';
+import TodoItem from './TodoItem/TodoItem';
 
 const TodoList = ({ todos, setTodos }) => {
   return todos.length ? (
