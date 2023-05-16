@@ -1,7 +1,14 @@
-export const RecommendItem = ({ item }) => {
+export const RecommendItem = ({ item, setInputText }) => {
+  const changeToKeyword = e => {
+    e.preventDefault();
+    setInputText(item);
+  };
+
   return (
     <li>
-      <button>{item}</button>
+      <button type="button" onClick={changeToKeyword}>
+        {item}
+      </button>
     </li>
   );
 };

@@ -60,7 +60,10 @@ const InputTodo = ({ setTodos }) => {
           <FaSpinner className="spinner" />
         )}
       </form>
-      <RecommendKeywords recommendList={recommendList} />
+      <RecommendKeywords
+        recommendList={recommendList}
+        setInputText={setInputText}
+      />
     </>
   );
 };
