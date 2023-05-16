@@ -4,6 +4,7 @@ import { createTodo } from '../../api/todo';
 import useFocus from '../../hooks/useFocus';
 import { RecommendKeywords } from './RecommendKeywords/RecommendKeywords';
 import { useRecommend } from './RecommendKeywords/useRecommend';
+import { checkInput } from './checkInput';
 
 const InputTodo = ({ setTodos }) => {
   const [inputText, setInputText] = useState('');
@@ -15,16 +16,8 @@ const InputTodo = ({ setTodos }) => {
       try {
         e.preventDefault();
         setIsLoading(true);
-
-        const trimmed = inputText.trim();
-        if (!trimmed) {
-          // eslint-disable-next-line no-alert
-          return alert('Please write something');
-        }
-
-        const newItem = { title: trimmed };
+        const newItem = checkInput(inputText);
         const { data } = await createTodo(newItem);
-
         if (data) {
           return setTodos(prev => [...prev, data]);
         }
@@ -62,7 +55,9 @@ const InputTodo = ({ setTodos }) => {
       </form>
       <RecommendKeywords
         recommendList={recommendList}
+        setTodos={setTodos}
         setInputText={setInputText}
+        setIsLoading={setIsLoading}
       />
     </>
   );

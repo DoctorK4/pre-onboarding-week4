@@ -1,7 +1,12 @@
 import React from 'react';
 import { RecommendItem } from './RecommendItem/RecommendItem';
 
-export const RecommendKeywords = ({ recommendList, setInputText }) => {
+export const RecommendKeywords = ({
+  recommendList,
+  setTodos,
+  setInputText,
+  setIsLoading,
+}) => {
   return (
     <div>
       <ul>
@@ -11,7 +16,9 @@ export const RecommendKeywords = ({ recommendList, setInputText }) => {
                 key={item}
                 item={item}
                 id={index}
+                setTodos={setTodos}
                 setInputText={setInputText}
+                setIsLoading={setIsLoading}
               />
             ))
           : null}

@@ -1,11 +1,12 @@
 import apiRequest from 'api';
 
 const RESOURCE = '/search';
+const MAX_LENGTH = 10;
 
 export const getRecommend = async keyword => {
   try {
     const response = await apiRequest.get(`${RESOURCE}`, {
-      params: { q: keyword },
+      params: { q: keyword, qty: MAX_LENGTH },
     });
     console.log(response);
     return response.data;
