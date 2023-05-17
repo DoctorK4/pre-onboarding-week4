@@ -1,5 +1,6 @@
 import React from 'react';
 import { RecommendItem } from './RecommendItem/RecommendItem';
+import './RecommendKeywords.css';
 
 export const RecommendKeywords = ({
   recommendList,
@@ -8,7 +9,7 @@ export const RecommendKeywords = ({
   setIsLoading,
 }) => {
   return (
-    <div>
+    <div className="rec wrapper">
       <ul>
         {recommendList.length > 0
           ? recommendList.map((item, index) => (

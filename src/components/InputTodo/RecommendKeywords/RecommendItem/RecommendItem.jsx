@@ -1,6 +1,7 @@
 import { createTodo } from 'api/todo';
-import { checkInput } from 'components/InputTodo/checkInput';
+import { checkInput } from 'components/InputTodo/InputTodo.hooks';
 import { useCallback } from 'react';
+import './RecommendItem.css';
 
 export const RecommendItem = ({
   item,
@@ -27,8 +28,8 @@ export const RecommendItem = ({
   );
 
   return (
-    <li>
-      <button type="button" onClick={handleClick}>
+    <li className="rec unitbg">
+      <button className="rec unitbutton" type="button" onClick={handleClick}>
         {item}
       </button>
     </li>

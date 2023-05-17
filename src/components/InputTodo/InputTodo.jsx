@@ -3,8 +3,8 @@ import { useCallback, useState } from 'react';
 import { createTodo } from '../../api/todo';
 import useFocus from '../../hooks/useFocus';
 import { RecommendKeywords } from './RecommendKeywords/RecommendKeywords';
-import { useRecommend } from './RecommendKeywords/useRecommend';
-import { checkInput } from './checkInput';
+import { useRecommend } from './RecommendKeywords/RecommendKeywords.hooks.jsx';
+import { checkInput } from './InputTodo.hooks';
 
 const InputTodo = ({ setTodos }) => {
   const [inputText, setInputText] = useState('');
@@ -53,12 +53,14 @@ const InputTodo = ({ setTodos }) => {
           <FaSpinner className="spinner" />
         )}
       </form>
-      <RecommendKeywords
-        recommendList={recommendList}
-        setTodos={setTodos}
-        setInputText={setInputText}
-        setIsLoading={setIsLoading}
-      />
+      {inputText && (
+        <RecommendKeywords
+          recommendList={recommendList}
+          setTodos={setTodos}
+          setInputText={setInputText}
+          setIsLoading={setIsLoading}
+        />
+      )}
     </>
   );
 };

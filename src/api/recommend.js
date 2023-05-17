@@ -6,7 +6,7 @@ const MAX_LENGTH = 10;
 export const getRecommend = async keyword => {
   try {
     const response = await apiRequest.get(`${RESOURCE}`, {
-      params: { q: keyword, qty: MAX_LENGTH },
+      params: { q: keyword, limit: MAX_LENGTH },
     });
     console.log(response);
     return response.data;
