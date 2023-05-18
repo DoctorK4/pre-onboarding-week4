@@ -3,6 +3,7 @@ import { useCallback, useEffect, useState } from 'react';
 
 import { createTodo } from '../../api/todo';
 import useFocus from '../../hooks/useFocus';
+import React from 'react';
 
 const InputTodo = ({ setTodos }) => {
   const [inputText, setInputText] = useState('');

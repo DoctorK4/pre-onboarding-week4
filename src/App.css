@@ -7,6 +7,19 @@
   padding: 0;
 }
 
+h1 {
+  padding: '20px 0';
+  line-height: '1.5em';
+}
+.header.title {
+  font-size: '6rem';
+  font-weight: '600';
+  margin-bottom: '2rem';
+  line-height: '1em';
+  color: '#ececec';
+  text-align: center;
+};
+
 body {
   font-family: "Segoe UI", Arial, sans-serif;
   line-height: 1.4;
